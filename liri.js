@@ -21,7 +21,7 @@ inquire.prompt([
   }
 ]).then(function (user) {
   console.log(user.pickCase);
-  //----------------------------------------------------------------
+//----------------------------------------------------------------
   //Twitter
   switch(user.pickCase) {
     case "my-tweets":
@@ -48,12 +48,12 @@ inquire.prompt([
     var spotify = require('spotify');
       inquire.prompt([
         {
-          type: "ipnut",
+          type: "input",
           message: "What song would you like to choose?",
           name: "songChoice"
         }
         ]).then(function (song) {
-          spotify.search({ type: 'track', query: title || song.songChoice }, function(err, data) {
+          spotify.search({ type: 'track', query: song.songChoice }, function(err, data) {
           if ( err ) {
             console.log('Error occurred: ' + err);
             return;
@@ -106,12 +106,7 @@ inquire.prompt([
   //do-what-it-says
     case "do-what-it-says":
     var random = require("./random.txt");
-
-    fs.readFile("random.txt", utf8, function(error, data) {
-      var randomOutput = data.split(",").trim();
-    });
+    var spotify = require('spotify');
+  
   }; //for switch case
 }); //for function user
-
-
-//word up
